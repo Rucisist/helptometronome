@@ -16,6 +16,8 @@
 		BF468B041F9C92DA00619515 /* right1.png in Resources */ = {isa = PBXBuildFile; fileRef = BF468B021F9C92D900619515 /* right1.png */; };
 		BF468B061F9C977F00619515 /* sdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = BF468B051F9C977F00619515 /* sdown.wav */; };
 		BF468B081F9CAC1A00619515 /* Sizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF468B071F9CAC1A00619515 /* Sizer.swift */; };
+		BF468B0A1F9D039600619515 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF468B091F9D039600619515 /* Metronome.swift */; };
+		BFDA5FA51F9D0BE5002532EE /* sup.wav in Resources */ = {isa = PBXBuildFile; fileRef = BFDA5FA41F9D0BE5002532EE /* sup.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		BF468B021F9C92D900619515 /* right1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right1.png; path = ../../../../Pictures/right1.png; sourceTree = "<group>"; };
 		BF468B051F9C977F00619515 /* sdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sdown.wav; path = ../../../../Downloads/sdown.wav; sourceTree = "<group>"; };
 		BF468B071F9CAC1A00619515 /* Sizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizer.swift; sourceTree = "<group>"; };
+		BF468B091F9D039600619515 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
+		BFDA5FA41F9D0BE5002532EE /* sup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sup.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +68,12 @@
 			children = (
 				BF468AEF1F9C856D00619515 /* AppDelegate.swift */,
 				BF468AF11F9C856D00619515 /* ViewController.swift */,
+				BF468B091F9D039600619515 /* Metronome.swift */,
 				BF468B071F9CAC1A00619515 /* Sizer.swift */,
 				BF468AF31F9C856D00619515 /* Main.storyboard */,
 				BF468B011F9C92D900619515 /* left.png */,
 				BF468B051F9C977F00619515 /* sdown.wav */,
+				BFDA5FA41F9D0BE5002532EE /* sup.wav */,
 				BF468B021F9C92D900619515 /* right1.png */,
 				BF468AF61F9C856D00619515 /* Assets.xcassets */,
 				BF468AF81F9C856D00619515 /* LaunchScreen.storyboard */,
@@ -138,6 +144,7 @@
 				BF468AFA1F9C856D00619515 /* LaunchScreen.storyboard in Resources */,
 				BF468AF71F9C856D00619515 /* Assets.xcassets in Resources */,
 				BF468B031F9C92DA00619515 /* left.png in Resources */,
+				BFDA5FA51F9D0BE5002532EE /* sup.wav in Resources */,
 				BF468AF51F9C856D00619515 /* Main.storyboard in Resources */,
 				BF468B061F9C977F00619515 /* sdown.wav in Resources */,
 				BF468B041F9C92DA00619515 /* right1.png in Resources */,
@@ -151,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF468B0A1F9D039600619515 /* Metronome.swift in Sources */,
 				BF468B081F9CAC1A00619515 /* Sizer.swift in Sources */,
 				BF468AF21F9C856D00619515 /* ViewController.swift in Sources */,
 				BF468AF01F9C856D00619515 /* AppDelegate.swift in Sources */,

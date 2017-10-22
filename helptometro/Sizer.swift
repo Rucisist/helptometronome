@@ -13,7 +13,6 @@ import Foundation
 class Sizer {
     var type: String
     var element: Int
-    var downElements = [1,2,4,8,16,32,64]
     init(type: String, element: Int) {
         self.type = type
         self.element = element
