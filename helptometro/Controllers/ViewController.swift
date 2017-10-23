@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     let metronome = Metronome()
     var timerForImage: Timer?
     var m: metroi = .left
+
     
     
     
@@ -36,6 +37,8 @@ class ViewController: UIViewController {
     
     @IBAction func vchange(_ sender: Any) {
         label1.text = String(Int((changer.value)))
+        let color = Colorimetr(startPoint: 1.0, endPoint: 240.0)
+        label1.textColor = color.giveMeColor(Tempo: Double(changer.value))
         if !startedMetronome{
         guard (timer != nil) else {
             return
@@ -126,6 +129,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let color = Colorimetr(startPoint: 1.0, endPoint: 240.0)
+        label1.textColor = color.giveMeColor(Tempo: 120.0)
         changer.maximumValue = 240.0
         changer.minimumValue = 1.0
         changer.value = 120.0
