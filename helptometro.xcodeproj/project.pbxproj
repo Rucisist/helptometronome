@@ -12,12 +12,12 @@
 		BF468AF51F9C856D00619515 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF468AF31F9C856D00619515 /* Main.storyboard */; };
 		BF468AF71F9C856D00619515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF468AF61F9C856D00619515 /* Assets.xcassets */; };
 		BF468AFA1F9C856D00619515 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF468AF81F9C856D00619515 /* LaunchScreen.storyboard */; };
-		BF468B031F9C92DA00619515 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = BF468B011F9C92D900619515 /* left.png */; };
-		BF468B041F9C92DA00619515 /* right1.png in Resources */ = {isa = PBXBuildFile; fileRef = BF468B021F9C92D900619515 /* right1.png */; };
 		BF468B061F9C977F00619515 /* sdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = BF468B051F9C977F00619515 /* sdown.wav */; };
 		BF468B081F9CAC1A00619515 /* Sizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF468B071F9CAC1A00619515 /* Sizer.swift */; };
 		BF468B0A1F9D039600619515 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF468B091F9D039600619515 /* Metronome.swift */; };
 		BFDA5FA51F9D0BE5002532EE /* sup.wav in Resources */ = {isa = PBXBuildFile; fileRef = BFDA5FA41F9D0BE5002532EE /* sup.wav */; };
+		BFDA5FC51F9D63F9002532EE /* right1.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDA5FC41F9D63F9002532EE /* right1.png */; };
+		BFDA5FC71F9D6407002532EE /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDA5FC61F9D6407002532EE /* left.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +28,14 @@
 		BF468AF61F9C856D00619515 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF468AF91F9C856D00619515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF468AFB1F9C856D00619515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF468B011F9C92D900619515 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left.png; path = ../../../../Pictures/left.png; sourceTree = "<group>"; };
-		BF468B021F9C92D900619515 /* right1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right1.png; path = ../../../../Pictures/right1.png; sourceTree = "<group>"; };
 		BF468B051F9C977F00619515 /* sdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sdown.wav; path = ../../../../Downloads/sdown.wav; sourceTree = "<group>"; };
 		BF468B071F9CAC1A00619515 /* Sizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizer.swift; sourceTree = "<group>"; };
 		BF468B091F9D039600619515 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
 		BFDA5FA41F9D0BE5002532EE /* sup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sup.wav; sourceTree = "<group>"; };
+		BFDA5FC41F9D63F9002532EE /* right1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right1.png; sourceTree = "<group>"; };
+		BFDA5FC61F9D6407002532EE /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		BFDA5FCB1F9D65C3002532EE /* sdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sdown.wav; sourceTree = "<group>"; };
+		BFDA5FCC1F9D65CD002532EE /* sdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sdown.wav; path = ../../../../../Downloads/sdown.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,20 +68,62 @@
 		BF468AEE1F9C856D00619515 /* helptometro */ = {
 			isa = PBXGroup;
 			children = (
-				BF468AEF1F9C856D00619515 /* AppDelegate.swift */,
-				BF468AF11F9C856D00619515 /* ViewController.swift */,
-				BF468B091F9D039600619515 /* Metronome.swift */,
-				BF468B071F9CAC1A00619515 /* Sizer.swift */,
-				BF468AF31F9C856D00619515 /* Main.storyboard */,
-				BF468B011F9C92D900619515 /* left.png */,
+				BF73967C1F9D661900F91055 /* Delegate */,
+				BF73967B1F9D660B00F91055 /* Controllers */,
+				BFDA5FC81F9D6578002532EE /* Classes */,
+				BFDA5FC91F9D65AC002532EE /* StoryBoards */,
+				BFDA5FCA1F9D65C2002532EE /* Assets */,
 				BF468B051F9C977F00619515 /* sdown.wav */,
-				BFDA5FA41F9D0BE5002532EE /* sup.wav */,
-				BF468B021F9C92D900619515 /* right1.png */,
-				BF468AF61F9C856D00619515 /* Assets.xcassets */,
-				BF468AF81F9C856D00619515 /* LaunchScreen.storyboard */,
 				BF468AFB1F9C856D00619515 /* Info.plist */,
 			);
 			path = helptometro;
+			sourceTree = "<group>";
+		};
+		BF73967B1F9D660B00F91055 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF468AF11F9C856D00619515 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BF73967C1F9D661900F91055 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				BF468AEF1F9C856D00619515 /* AppDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		BFDA5FC81F9D6578002532EE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BF468B091F9D039600619515 /* Metronome.swift */,
+				BF468B071F9CAC1A00619515 /* Sizer.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BFDA5FC91F9D65AC002532EE /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				BF468AF31F9C856D00619515 /* Main.storyboard */,
+				BF468AF81F9C856D00619515 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		BFDA5FCA1F9D65C2002532EE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				BFDA5FCC1F9D65CD002532EE /* sdown.wav */,
+				BFDA5FC41F9D63F9002532EE /* right1.png */,
+				BFDA5FC61F9D6407002532EE /* left.png */,
+				BFDA5FCB1F9D65C3002532EE /* sdown.wav */,
+				BFDA5FA41F9D0BE5002532EE /* sup.wav */,
+				BF468AF61F9C856D00619515 /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,13 +185,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDA5FC71F9D6407002532EE /* left.png in Resources */,
 				BF468AFA1F9C856D00619515 /* LaunchScreen.storyboard in Resources */,
 				BF468AF71F9C856D00619515 /* Assets.xcassets in Resources */,
-				BF468B031F9C92DA00619515 /* left.png in Resources */,
 				BFDA5FA51F9D0BE5002532EE /* sup.wav in Resources */,
 				BF468AF51F9C856D00619515 /* Main.storyboard in Resources */,
 				BF468B061F9C977F00619515 /* sdown.wav in Resources */,
-				BF468B041F9C92DA00619515 /* right1.png in Resources */,
+				BFDA5FC51F9D63F9002532EE /* right1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

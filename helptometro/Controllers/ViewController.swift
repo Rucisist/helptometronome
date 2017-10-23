@@ -92,12 +92,12 @@ class ViewController: UIViewController {
     @IBAction func plusOrMinusClickDown(_ sender: UIButton){
         let buttonType = sender.titleLabel?.text! ?? "+"
         sizeDown.element = Int(downLabel.text!) ?? 4
-        
-        switch buttonType {
-        case "+":
+        let buttonIndex = sender.tag
+        switch buttonIndex {
+        case 5:
             downLabel.text = String(sizeDown.nextElement())
             
-        case "-":
+        case 6:
             downLabel.text = String(sizeDown.previousElement())
             
         default:
