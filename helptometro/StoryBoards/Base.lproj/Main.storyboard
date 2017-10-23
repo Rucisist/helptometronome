@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="helptometro" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                                     <action selector="plusOrMinusClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bTl-5Z-9mp"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left.png" translatesAutoresizingMaskIntoConstraints="NO" id="IB0-38-h4a">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="IB0-38-h4a">
                                 <rect key="frame" x="130" y="45" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="2tS-Fo-9db"/>
@@ -138,7 +138,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="enhanced mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zw4-Lj-RMF">
-                                <rect key="frame" x="92" y="382" width="124" height="21"/>
+                                <rect key="frame" x="92" y="381" width="124" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="sco-ON-1he"/>
                                 </constraints>
@@ -166,7 +166,7 @@
                                 </variation>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YFD-x9-88G">
-                                <rect key="frame" x="29" y="377" width="51" height="31"/>
+                                <rect key="frame" x="29" y="376" width="51" height="31"/>
                                 <connections>
                                     <action selector="enhancedModeTmblrCjanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="kaD-Ma-KRV"/>
                                 </connections>
@@ -205,7 +205,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="using of enhanced mode, guarantee you a correct work up to 100 Hz of metronom beating" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjc-mw-rvm">
-                                <rect key="frame" x="20" y="411" width="180" height="90"/>
+                                <rect key="frame" x="20" y="410" width="180" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="bEK-cF-DOb"/>
                                     <constraint firstAttribute="width" constant="180" id="hUt-Gc-avv"/>
@@ -246,7 +246,7 @@
                             <constraint firstItem="qpb-nd-7vx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8DS-ll-2u9"/>
                             <constraint firstItem="IB0-38-h4a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="52" id="8Ug-BX-1aI"/>
                             <constraint firstItem="IB0-38-h4a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BGu-7o-t0q"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mjc-mw-rvm" secondAttribute="bottom" constant="67" id="EP0-ec-DPT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mjc-mw-rvm" secondAttribute="bottom" constant="68" id="EP0-ec-DPT"/>
                             <constraint firstItem="khI-HI-u8v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="227" id="Fok-Ex-oLH"/>
                             <constraint firstItem="vNj-Zm-98h" firstAttribute="top" secondItem="zw4-Lj-RMF" secondAttribute="bottom" constant="87" id="GDm-AW-Ljt"/>
                             <constraint firstItem="oBV-nW-e8X" firstAttribute="top" secondItem="a7f-UU-I9e" secondAttribute="bottom" constant="9.5" id="Gb5-K0-Qh1"/>
@@ -415,6 +415,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="WiU-bl-7Az"/>
                     <connections>
                         <outlet property="buttonMinus" destination="q2v-PA-hwq" id="9MI-ZC-Caf"/>
                         <outlet property="buttonPlus" destination="1Dt-ny-v7B" id="7zV-f8-UEe"/>
@@ -429,10 +430,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="130.98591549295776"/>
+            <point key="canvasLocation" x="-291" y="-811"/>
         </scene>
     </scenes>
     <resources>
-        <image name="left.png" width="700" height="700"/>
+        <image name="left" width="700" height="700"/>
     </resources>
 </document>

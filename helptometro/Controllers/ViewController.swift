@@ -44,7 +44,6 @@ class ViewController: UIViewController {
             
         }
         else{
-            print("dfd")
             if !enhancedModeTmblr.isOn {
                 timer?.invalidate()
                 timerStart()
@@ -72,7 +71,6 @@ class ViewController: UIViewController {
     
     
     @IBAction func plusOrMinusClick(_ sender: UIButton){
-    //print(sender.titleLabel?.text)
         label1.text = String(Int((changer.value)))
         let buttonType = sender.titleLabel?.text! ?? "+"
         let buttonIndex = sender.tag
@@ -149,8 +147,11 @@ class ViewController: UIViewController {
         time = 0.0
         
         var audioPlayer: AVAudioPlayer!
-        
+        guard Bundle.main.path(forResource: "sdown", ofType: "wav") != nil else {
+            return
+        }
         let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: "sdown", ofType: "wav")!)
+
         try!  audioPlayer = AVAudioPlayer(contentsOf: alertSound)
         audioPlayer.prepareToPlay()
         var lTick = 0.0
@@ -166,9 +167,11 @@ class ViewController: UIViewController {
             let downNumber = Double(self.downLabel.text!)!
             let targetTime = 60.0 / (tempo / (4.0 / downNumber))
             //60  / (темп / ( 4 / знаменатель размера ))
-            
+            //make tick according to date with accurate 0.001
             if (elapsedTime > targetTime) || (abs(elapsedTime - targetTime) < 0.001) {
                 lTick = CFAbsoluteTimeGetCurrent()
+                
+                //every n times make a volume level up to create a strong note
                 copyUpNumb = copyUpNumb - 1
                 if copyUpNumb == 0{
                     audioPlayer.volume = 10
@@ -182,7 +185,7 @@ class ViewController: UIViewController {
                 
             }
             
-            
+            //animate image
             self.time = self.time + (timeInterval)
             if self.time >= targetTime{
                 if self.m == .left{
@@ -214,7 +217,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    
+    //to set the right metronome state
     func stateMetronome() {
         if !startedMetronome{
             if !enhancedModeTmblr.isOn {
@@ -259,6 +262,7 @@ class ViewController: UIViewController {
         metronome.start()
         imageAnimate()
     }
+    
     
     func approveInStartAndStopIfNeed(){
         if startedMetronome{

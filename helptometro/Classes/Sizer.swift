@@ -5,7 +5,7 @@
 //  Created by Андрей Илалов on 22.10.2017.
 //  Copyright © 2017 Андрей Илалов. All rights reserved.
 //
-
+// class for creating raws up and down, means up size and down size - n/m, n - up, m - down
 import Foundation
 
 
@@ -19,29 +19,21 @@ class Sizer {
     }
     
     func nextElement() -> Int {
-        if self.type == "down"{
-            if element < 64 {
+        if self.type == "down" && element < 64{
                 element *= 2
-            }
         }
-        else if self.type == "up"{
-            if element < 64 {
+        else if self.type == "up" && element < 64{
                 element += 1
-            }
         }
     return element
     }
     
     func previousElement() -> Int {
-        if self.type == "down"{
-            if element > 1 {
+        if self.type == "down" && element > 1{
                 element /= 2
-            }
         }
-        else if self.type == "up"{
-            if element > 1 {
+        else if self.type == "up" && element > 1{
                 element -= 1
-            }
         }
         return element
     }
