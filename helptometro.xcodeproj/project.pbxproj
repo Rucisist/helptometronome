@@ -16,6 +16,7 @@
 		BF468B0A1F9D039600619515 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF468B091F9D039600619515 /* Metronome.swift */; };
 		BF73967F1F9D95F800F91055 /* sdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = BF73967D1F9D95F800F91055 /* sdown.wav */; };
 		BF7396801F9D95F800F91055 /* sup.wav in Resources */ = {isa = PBXBuildFile; fileRef = BF73967E1F9D95F800F91055 /* sup.wav */; };
+		BF7396841F9DC9A200F91055 /* Colorimetr.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7396831F9DC9A200F91055 /* Colorimetr.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		BF468B091F9D039600619515 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
 		BF73967D1F9D95F800F91055 /* sdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sdown.wav; sourceTree = "<group>"; };
 		BF73967E1F9D95F800F91055 /* sup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sup.wav; sourceTree = "<group>"; };
+		BF7396831F9DC9A200F91055 /* Colorimetr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorimetr.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				BF468B091F9D039600619515 /* Metronome.swift */,
+				BF7396831F9DC9A200F91055 /* Colorimetr.swift */,
 				BF468B071F9CAC1A00619515 /* Sizer.swift */,
 			);
 			path = Classes;
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF468B0A1F9D039600619515 /* Metronome.swift in Sources */,
+				BF7396841F9DC9A200F91055 /* Colorimetr.swift in Sources */,
 				BF468B081F9CAC1A00619515 /* Sizer.swift in Sources */,
 				BF468AF21F9C856D00619515 /* ViewController.swift in Sources */,
 				BF468AF01F9C856D00619515 /* AppDelegate.swift in Sources */,
