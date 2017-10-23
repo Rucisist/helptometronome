@@ -6,6 +6,8 @@
  It's a Metronome!
  */
 
+//adopted by me. But it should be ok to use some side libs or opensource code. Andrei Ilalov.
+
 import Foundation
 import AVFoundation
 
@@ -50,7 +52,6 @@ class Metronome : NSObject {
         // Create a standard audio format deinterleaved float.
         let format = AVAudioFormat(standardFormatWithSampleRate: 44100.0, channels: 2)
 
-        // How many audio frames?
         let bipFrames: UInt32 = UInt32(GlobalConstants.kBipDurationSeconds * Float(format!.sampleRate))
 
         // Create the PCM buffers.
@@ -74,7 +75,6 @@ class Metronome : NSObject {
         try! soundClick.read(into: soundBuffer[1]!)
 
 
-        // Connect player -> output, with the format of the buffers we're playing.
         let output: AVAudioOutputNode = engine.outputNode
 
         engine.attach(player)
@@ -130,14 +130,11 @@ class Metronome : NSObject {
             beatsScheduled += 1
             
             if (!playerStarted) {
-                // We defer the starting of the player so that the first beat will play precisely
-                // at player time 0. Having scheduled the first beat, we need the player to be running
-                // in order for nodeTimeForPlayerTime to return a non-nil value.
                 player.play()
                 playerStarted = true
             }
             
-            // Schedule the delegate callback (metronomeTicking:bar:beat:) if necessary.
+            
             let callbackBeat = beatNumber
             beatNumber += 1
             if delegate?.metronomeTicking != nil {
@@ -182,23 +179,11 @@ class Metronome : NSObject {
     
     func stop() {
         isPlaying = false;
-        
-        /* Note that pausing or stopping all AVAudioPlayerNode's connected to an engine does
-         NOT pause or stop the engine or the underlying hardware.
-         
-         The engine must be explicitly paused or stopped for the hardware to stop.
-         */
+
         player.stop()
         player.reset()
         
-        /* Stop the audio hardware and the engine and release the resources allocated by the prepare method.
-         
-         Note that pause will also stop the audio hardware and the flow of audio through the engine, but
-         will not deallocate the resources allocated by the prepare method.
-         
-         It is recommended that the engine be paused or stopped (as applicable) when not in use,
-         to minimize power consumption.
-         */
+
         engine.stop()
         
         playerStarted = false

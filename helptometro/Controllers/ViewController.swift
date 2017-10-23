@@ -4,52 +4,70 @@
 //
 //  Created by Андрей Илалов on 22.10.2017.
 //  Copyright © 2017 Андрей Илалов. All rights reserved.
-//
+//icons by freepic and noun
 
 import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    
-    @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var enhancedModeTmblr: UISwitch!
-    @IBOutlet weak var downLabel: UILabel!
-    @IBOutlet weak var upLabel: UILabel!
-    var sizeUp = Sizer(type: "up", element: 4)
-    var sizeDown = Sizer(type: "down", element: 4)
-    var valueOnSlider: Int!
-    var startedMetronome = false
-    let metronome = Metronome()
-    
-    @IBOutlet weak var buttonPlus: UIButton!
-    @IBOutlet weak var buttonMinus: UIButton!
-    @IBAction func vchange(_ sender: Any) {
-        label1.text = String(Int((changer.value)))
-        guard (timer != nil) else {
-            return
-        }
-        timer?.invalidate()
-        timerStart()
-        
-        
-    }
     enum metroi {
         case left,right
     }
     var timer: Timer?
     var time: Double!
+    var sizeUp = Sizer(type: "up", element: 4)
+    var sizeDown = Sizer(type: "down", element: 4)
+    var valueOnSlider: Int!
+    var startedMetronome = false
+    let metronome = Metronome()
+    var timerForImage: Timer?
+    var m: metroi = .left
+    
+    
+    
+    
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var enhancedModeTmblr: UISwitch!
+    @IBOutlet weak var downLabel: UILabel!
+    @IBOutlet weak var upLabel: UILabel!
+    @IBOutlet weak var buttonPlus: UIButton!
+    @IBOutlet weak var buttonMinus: UIButton!
+    
+    
+    @IBAction func vchange(_ sender: Any) {
+        label1.text = String(Int((changer.value)))
+        if !startedMetronome{
+        guard (timer != nil) else {
+            return
+        }
+        timer?.invalidate()
+        timerStart()
+            
+        }
+        else{
+            if !enhancedModeTmblr.isOn {
+                timer?.invalidate()
+                timerStart()
+            }
+            if enhancedModeTmblr.isOn{
+                stopAndStartEnhancedMetronomeWithP()
+            }
+        }
+        
+        
+    }
+    
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var changer: UISlider!
     
     @IBAction func enhancedModeTmblrCjanged(_ sender: Any) {
         timer?.invalidate()
         metronome.stop()
+        timerForImage?.invalidate()
         startedMetronome = false
-        startButton.backgroundColor = UIColor(red: CGFloat(255), green: CGFloat(255), blue: CGFloat(255), alpha: CGFloat(0.5))
-        startButton.titleLabel?.text = "start"
-//        if enhancedModeTmblr.isOn{
-//            metronome.start()
-//        }
+        startButton.backgroundColor = UIColor(red: CGFloat(255), green: CGFloat(255), blue: CGFloat(255), alpha: CGFloat(1))
+        startButton.tintColor = UIColor(red: CGFloat(0), green: CGFloat(0), blue: CGFloat(200), alpha: CGFloat(1))
+        startButton.setTitle("start", for: .normal)
     }
     
     @IBAction func plusOrMinusClickUp(_ sender: UIButton){
@@ -67,13 +85,9 @@ class ViewController: UIViewController {
         default:
             print(buttonType)
         }
-        
-        guard (timer != nil) else {
-            return
-        }
-        timer?.invalidate()
-        timerStart()
+        approveInStartAndStopIfNeed()
     }
+    
     
     @IBAction func plusOrMinusClickDown(_ sender: UIButton){
         let buttonType = sender.titleLabel?.text! ?? "+"
@@ -90,11 +104,7 @@ class ViewController: UIViewController {
             print(buttonType)
         }
         
-        guard (timer != nil) else {
-            return
-        }
-        timer?.invalidate()
-        timerStart()
+   approveInStartAndStopIfNeed()
     }
     
     
@@ -113,28 +123,59 @@ class ViewController: UIViewController {
             print(buttonType)
         }
         
-        guard (timer != nil) else {
-            return
-        }
-        timer?.invalidate()
-        timerStart()
+ approveInStartAndStopIfNeed()
     }
     
     
+
+    
+    @IBAction func change(_ sender: Any) {
+
+        if !startedMetronome {
+            startButton.backgroundColor = UIColor(red: CGFloat(0), green: CGFloat(0), blue: CGFloat(255), alpha: CGFloat(0.1))
+            startButton.tintColor = UIColor(red: CGFloat(255), green: CGFloat(0), blue: CGFloat(0), alpha: CGFloat(0.6))
+             startButton.setTitle("stop", for: .normal)
+            
+        }
+        else {
+            startButton.backgroundColor = UIColor(red: CGFloat(255), green: CGFloat(255), blue: CGFloat(255), alpha: CGFloat(1))
+            startButton.tintColor = UIColor(red: CGFloat(0), green: CGFloat(0), blue: CGFloat(200), alpha: CGFloat(1))
+             startButton.setTitle("start", for: .normal)
+        }
+       stateMetronome()
+    }
+    
+ 
+    @IBOutlet weak var metrImage: UIImageView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        changer.maximumValue = 240.0
+        changer.minimumValue = 1.0
+        changer.value = 120.0
+        label1.text = String(Int(changer.value))
+        startButton.tintColor = UIColor(red: CGFloat(0), green: CGFloat(0), blue: CGFloat(200), alpha: CGFloat(1))
+        startButton.layer.cornerRadius = 4
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    
+    
+    
     func timerStart() {
-        var m: metroi
-        m = .left
         time = 0.0
         
         var audioPlayer: AVAudioPlayer!
-        var audioPlayerUp: AVAudioPlayer!
         
         let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: "sdown", ofType: "wav")!)
-        let alertSoundUp = URL(fileURLWithPath: Bundle.main.path(forResource: "sup", ofType: "wav")!)
         try!  audioPlayer = AVAudioPlayer(contentsOf: alertSound)
-        try! audioPlayerUp = AVAudioPlayer(contentsOf: alertSoundUp)
         audioPlayer.prepareToPlay()
-        audioPlayerUp.prepareToPlay()
         var lTick = 0.0
         let timeInterval = 0.01
         let upNumb = Int(upLabel.text!)!
@@ -153,27 +194,27 @@ class ViewController: UIViewController {
                 lTick = CFAbsoluteTimeGetCurrent()
                 copyUpNumb = copyUpNumb - 1
                 if copyUpNumb == 0{
-                    audioPlayerUp.play()
+                    audioPlayer.volume = 10
                     copyUpNumb = upNumb
                 }
                 else{
-                    audioPlayer.stop()
-                    audioPlayer.play()
+                    audioPlayer.volume = 1
                 }
-                
+                audioPlayer.stop()
+                audioPlayer.play()
                 
             }
             
             
             self.time = self.time + (timeInterval)
             if self.time >= targetTime{
-                if m == .left{
+                if self.m == .left{
                     self.metrImage.image = UIImage(named: "right1.png")
-                    m = .right
+                    self.m = .right
                 }
                 else{
                     self.metrImage.image = UIImage(named: "left.png")
-                    m = .left
+                    self.m = .left
                 }
                 self.time = 0.0
             }
@@ -181,8 +222,20 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func change(_ sender: Any) {
-       stateMetronome()
+    
+    
+    func imageAnimate() {
+        timerForImage = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true){timer in
+            
+            if self.m == .left{
+                self.metrImage.image = UIImage(named: "right1.png")
+                self.m = .right
+            }
+            else{
+                self.metrImage.image = UIImage(named: "left.png")
+                self.m = .left
+            }
+        }
     }
     
     func stateMetronome() {
@@ -193,8 +246,7 @@ class ViewController: UIViewController {
             if enhancedModeTmblr.isOn{
                 startEnhancedMetronomeWithParameters()
             }
-            startButton.backgroundColor = UIColor(red: CGFloat(0), green: CGFloat(0), blue: CGFloat(255), alpha: CGFloat(0.5))
-            startButton.titleLabel?.text = "stop"
+            
             startedMetronome = true
         }
         else if startedMetronome {
@@ -203,41 +255,62 @@ class ViewController: UIViewController {
             }
             if enhancedModeTmblr.isOn{
                 metronome.stop()
+                timerForImage?.invalidate()
             }
             startedMetronome = false
-            startButton.backgroundColor = UIColor(red: CGFloat(255), green: CGFloat(255), blue: CGFloat(255), alpha: CGFloat(0.5))
-            startButton.titleLabel?.text = "start"
+            
         }
         
     }
     
+    func stopAndStartEnhancedMetronomeWithP(){
+        stopOfEnhancedMetronome()
+        startEnhancedMetronomeWithParameters()
+    }
+    
+    func stopOfEnhancedMetronome(){
+        metronome.stop()
+        timerForImage?.invalidate()
+    }
+    
     func startEnhancedMetronomeWithParameters(){
-
+        
         metronome.uSize = Int(upLabel.text!)!
         let dNum = Int(downLabel.text!)
         let Tempo = changer.value * Float(dNum!)/4
         metronome.Tempo = Tempo
         metronome.start()
+        imageAnimate()
     }
     
+    func approveInStartAndStopIfNeed(){
+        if startedMetronome{
+            if !enhancedModeTmblr.isOn{
+                
+                guard (timer != nil) else {
+                    return
+                }
+                timer?.invalidate()
+                timerStart()
+            }
+            else {
+                stopAndStartEnhancedMetronomeWithP()
+            }
+        }
+        else {
+            if !enhancedModeTmblr.isOn{
+                
+                guard (timer != nil) else {
+                    return
+                }
+                timer?.invalidate()
+            }
+            else {
+                stopOfEnhancedMetronome()
+            }
+        }
+    }
     
-    @IBOutlet weak var metrImage: UIImageView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        changer.maximumValue = 240.0
-        changer.minimumValue = 1.0
-        changer.value = 120.0
-        label1.text = String(Int(changer.value))
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
