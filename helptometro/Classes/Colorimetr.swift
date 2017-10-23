@@ -21,7 +21,12 @@ class Colorimetr{
     func giveMeColor(Tempo: Double) -> UIColor{
         let redColor = CGFloat((Tempo/endPoint))
         let blueColor = CGFloat((1-Tempo/endPoint))
-        let greenColor = CGFloat(0)
+        var greenColor = CGFloat(0)
+        if Tempo < 120{
+            greenColor = CGFloat(Tempo/endPoint)}
+        else{
+            greenColor = CGFloat(1-Tempo/endPoint)
+        }
         return UIColor(red: redColor, green: greenColor, blue: blueColor, alpha: 1.0)
     }
     
