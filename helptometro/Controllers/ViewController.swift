@@ -41,10 +41,10 @@ class ViewController: UIViewController {
             return
         }
         timer?.invalidate()
-        timerStart()
             
         }
         else{
+            print("dfd")
             if !enhancedModeTmblr.isOn {
                 timer?.invalidate()
                 timerStart()
@@ -70,54 +70,30 @@ class ViewController: UIViewController {
         startButton.setTitle("start", for: .normal)
     }
     
-    @IBAction func plusOrMinusClickUp(_ sender: UIButton){
-        let buttonType = sender.titleLabel?.text! ?? "+"
-        sizeUp.element = Int(upLabel.text!) ?? 4
-    
-        
-        switch buttonType {
-        case "+":
-           upLabel.text = String(sizeUp.nextElement())
-            
-        case "-":
-            upLabel.text = String(sizeUp.previousElement())
-            
-        default:
-            print(buttonType)
-        }
-        approveInStartAndStopIfNeed()
-    }
-    
-    
-    @IBAction func plusOrMinusClickDown(_ sender: UIButton){
-        let buttonType = sender.titleLabel?.text! ?? "+"
-        sizeDown.element = Int(downLabel.text!) ?? 4
-        let buttonIndex = sender.tag
-        switch buttonIndex {
-        case 5:
-            downLabel.text = String(sizeDown.nextElement())
-            
-        case 6:
-            downLabel.text = String(sizeDown.previousElement())
-            
-        default:
-            print(buttonType)
-        }
-        
-   approveInStartAndStopIfNeed()
-    }
-    
     
     @IBAction func plusOrMinusClick(_ sender: UIButton){
     //print(sender.titleLabel?.text)
         label1.text = String(Int((changer.value)))
         let buttonType = sender.titleLabel?.text! ?? "+"
-        switch buttonType {
-        case "+":
+        let buttonIndex = sender.tag
+        switch buttonIndex {
+        case 1:
             changer.value += 1
             
-        case "-":
+        case 2:
             changer.value -= 1
+        case 3:
+
+            upLabel.text = String(sizeUp.nextElement())
+            
+        case 4:
+            upLabel.text = String(sizeUp.previousElement())
+            
+        case 5:
+            downLabel.text = String(sizeDown.nextElement())
+            
+        case 6:
+            downLabel.text = String(sizeDown.previousElement())
 
         default:
             print(buttonType)
@@ -143,6 +119,7 @@ class ViewController: UIViewController {
              startButton.setTitle("start", for: .normal)
         }
        stateMetronome()
+        //startedMetronome = false
     }
     
  
