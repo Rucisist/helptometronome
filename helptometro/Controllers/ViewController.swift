@@ -81,11 +81,11 @@ class ViewController: UIViewController {
         case 1:
             changer.value += 1
             let color = Colorimetr(startPoint: 1.0, endPoint: 240.0)
-            label1.textColor = color.giveMeColor(Tempo: 120.0)
+            label1.textColor = color.giveMeColor(Tempo: Double(changer.value))
         case 2:
             changer.value -= 1
             let color = Colorimetr(startPoint: 1.0, endPoint: 240.0)
-            label1.textColor = color.giveMeColor(Tempo: 120.0)
+            label1.textColor = color.giveMeColor(Tempo: Double(changer.value))
         case 3:
 
             upLabel.text = String(sizeUp.nextElement())
