@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qxA-tW-7yk">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -138,7 +138,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="enhanced mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zw4-Lj-RMF">
-                                <rect key="frame" x="92" y="381" width="124" height="21"/>
+                                <rect key="frame" x="92" y="332" width="124" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="sco-ON-1he"/>
                                 </constraints>
@@ -166,7 +166,7 @@
                                 </variation>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YFD-x9-88G">
-                                <rect key="frame" x="29" y="376" width="51" height="31"/>
+                                <rect key="frame" x="29" y="327" width="51" height="31"/>
                                 <connections>
                                     <action selector="enhancedModeTmblrCjanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="kaD-Ma-KRV"/>
                                 </connections>
@@ -205,7 +205,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="using of enhanced mode, guarantee you a correct work up to 100 Hz of metronom beating" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjc-mw-rvm">
-                                <rect key="frame" x="20" y="410" width="180" height="90"/>
+                                <rect key="frame" x="20" y="361" width="180" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="bEK-cF-DOb"/>
                                     <constraint firstAttribute="width" constant="180" id="hUt-Gc-avv"/>
@@ -223,8 +223,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="_____" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7f-UU-I9e">
-                                <rect key="frame" x="49" y="282" width="37" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_____" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7f-UU-I9e">
+                                <rect key="frame" x="51" y="282" width="37" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -430,7 +430,93 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-291" y="-811"/>
+            <point key="canvasLocation" x="-353" y="-1045"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="YAm-0M-j0o">
+            <objects>
+                <tabBarController id="qxA-tW-7yk" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="acI-NF-SLm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Jai-Ic-EOY"/>
+                        <segue destination="22H-KL-hBl" kind="relationship" relationship="viewControllers" id="rx0-Ht-Om5"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sLl-PE-0T2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1290" y="-894"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Ygg-Ez-0Jy">
+            <objects>
+                <viewController id="22H-KL-hBl" customClass="TapViewController" customModule="helptometro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2b1-UW-Rdx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tap on the screen to know BPM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhz-rq-aWN">
+                                <rect key="frame" x="91.5" y="495" width="137" height="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BPM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afJ-Yo-ErK">
+                                <rect key="frame" x="142" y="38" width="36" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aW-tC-v5V">
+                                <rect key="frame" x="150.5" y="92" width="19" height="36"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="0">
+                                        <attributes>
+                                            <font key="NSFont" size="30" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="9aW-tC-v5V" firstAttribute="centerX" secondItem="2b1-UW-Rdx" secondAttribute="centerX" id="1ul-ga-F29"/>
+                            <constraint firstItem="9aW-tC-v5V" firstAttribute="top" secondItem="afJ-Yo-ErK" secondAttribute="bottom" constant="33" id="4yS-nL-KrJ"/>
+                            <constraint firstItem="kk7-Sp-UIk" firstAttribute="bottom" secondItem="Yhz-rq-aWN" secondAttribute="bottom" constant="13" id="9cI-xc-CYY"/>
+                            <constraint firstItem="Yhz-rq-aWN" firstAttribute="centerX" secondItem="2b1-UW-Rdx" secondAttribute="centerX" id="9xP-7k-vec"/>
+                            <constraint firstItem="afJ-Yo-ErK" firstAttribute="centerX" secondItem="2b1-UW-Rdx" secondAttribute="centerX" id="ZDj-cL-6s7"/>
+                            <constraint firstItem="afJ-Yo-ErK" firstAttribute="top" secondItem="kk7-Sp-UIk" secondAttribute="top" constant="18" id="xwa-hZ-4Cg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kk7-Sp-UIk"/>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="9aW-tC-v5V"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="LMw-Tn-0ky" appends="YES" id="iki-c2-xuE"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="4hY-CH-Dp0"/>
+                    <connections>
+                        <outlet property="timeLabel" destination="9aW-tC-v5V" id="Did-sU-ON7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qtb-vg-uuB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="LMw-Tn-0ky">
+                    <connections>
+                        <action selector="tapped:" destination="22H-KL-hBl" id="pp6-Mf-OcD"/>
+                        <outlet property="delegate" destination="22H-KL-hBl" id="1Uh-Hp-5I2"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-281.25" y="-230.28169014084509"/>
         </scene>
     </scenes>
     <resources>
